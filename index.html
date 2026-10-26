@@ -1,1 +1,1046 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cucuy.ba | Café de Especialidad en Tigre</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2C221E;
+            --accent: #C88258;
+            --bg-light: #FBF9F6;
+            --card-bg: #8b5a36; /* Café clarito exterior */
+            --inner-bg: #ffffff; /* Caja interna blanca */
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --transition: all 0.3s ease;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 75px;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(251, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* INDICADOR DE CARRITO */
+        .cart-indicator {
+            background-color: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .cart-indicator:hover {
+            background-color: #b26f46;
+        }
+
+        .cart-indicator.bounce {
+            animation: bounceEffect 0.5s ease;
+        }
+
+        @keyframes bounceEffect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); background-color: #99582a; }
+        }
+
+        /* TOAST NOTIFICACIÓN */
+        .toast-notification {
+            position: fixed;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 4000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast-notification.show {
+            bottom: 30px;
+        }
+
+        .toast-notification i {
+            color: #25D366;
+            font-size: 1.2rem;
+        }
+
+        /* HERO */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #b26f46;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: #f4eae3;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* MENÚ */
+        .menu {
+            background-color: #F4EFEA;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .menu-category-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-category-title i {
+            color: var(--accent);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Tarjeta exterior: Café clarito */
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Caja interna: Cuarzo blanco con espacio vertical seguro */
+        .menu-inner-box {
+            background-color: var(--inner-bg);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .menu-inner-box h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .menu-inner-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.15rem;
+        }
+
+        /* CONTROL DE CANTIDAD (+ / -) */
+        .qty-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f1f3;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 6px 12px;
+        }
+
+        .qty-control button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            position: relative;
+            z-index: 20;
+        }
+
+        .qty-control button:hover {
+            background-color: var(--primary);
+        }
+
+        .qty-control span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        /* BOTÓN AGREGAR AL PEDIDO: FONDO BLANCO Y TEXTO NEGRO */
+        .btn-add {
+            background-color: #FFFFFF;
+            color: #000000;
+            border: 2px solid #2C221E;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            z-index: 20;
+            text-align: center;
+        }
+
+        .btn-add:hover {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        /* CARRITO LATERAL (DRAWER) */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            z-index: 3000;
+            transition: right 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 40px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .cart-item p {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .btn-remove {
+            background: none;
+            border: none;
+            color: #d9534f;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .btn-checkout {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-checkout:hover {
+            background-color: #b26f46;
+        }
+
+        /* CONTACTO Y FOOTER */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .map-box {
+            background: var(--primary);
+            color: white;
+            padding: 50px 30px;
+            border-radius: 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .map-box i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .map-box p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .map-note {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: #aaa;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOAST NOTIFICACIÓN -->
+    <div id="toast-notification" class="toast-notification">
+        <i class="fa-solid fa-check-circle"></i> <span id="toast-msg">¡Producto agregado al pedido!</span>
+    </div>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">cucuy<span>.ba</span></a>
+            <div id="cart-btn" class="cart-indicator" onclick="scrollToCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Café de Especialidad • Av. Italia 1599, Tigre</span>
+            <h1>Tu pausa perfecta frente al río</h1>
+            <p>Disfruta del mejor café de grano seleccionado, pastelería artesanal y opciones saladas imperdibles en el corazón de Tigre.</p>
+            <a href="#menu" class="btn-primary">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>El arte de hacer las cosas con calma y pasión</h2>
+                <p>En <strong>cucuy.ba</strong> creemos que cada taza cuenta una historia. Combinamos la calidez de lo artesanal con granos de origen cuidadosamente tostados.</p>
+                <div class="features">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-mug-hot"></i>
+                        <div>
+                            <h4>Café de Especialidad</h4>
+                            <p>Extracción precisa, V60, Aeropress y espresso.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-cookie-bite"></i>
+                        <div>
+                            <h4>Artesanal & Fresco</h4>
+                            <p>Panadería, medialunas y dulces horneados a diario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Ambiente cucuy.ba">
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Carta</h2>
+                <p>Arma tu pedido seleccionando cantidades y sumándolo al carrito.</p>
+            </div>
+
+            <!-- CAFÉ & BEBIDAS -->
+            <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i> Café & Bebidas</h3>
+            <div class="menu-grid">
+                <!-- 1 -->
+                <div class="menu-card" id="card-1">
+                    <div class="menu-inner-box">
+                        <h3>Espresso Doble</h3>
+                        <p>Shot de espresso o doble shot.</p>
+                        <span class="price">$5.100</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-1', -1)">-</button>
+                            <span id="qty-prod-1">1</span>
+                            <button type="button" onclick="changeQty('prod-1', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Espresso Doble', 5100, 'prod-1', 'card-1')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="menu-card" id="card-2">
+                    <div class="menu-inner-box">
+                        <h3>Flat White</h3>
+                        <p>Doble shot de espresso con espuma de leche.</p>
+                        <span class="price">$6.300</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-2', -1)">-</button>
+                            <span id="qty-prod-2">1</span>
+                            <button type="button" onclick="changeQty('prod-2', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Flat White', 6300, 'prod-2', 'card-2')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="menu-card" id="card-3">
+                    <div class="menu-inner-box">
+                        <h3>Latte Capuccino</h3>
+                        <p>Shot de espresso con leche o doble con espuma.</p>
+                        <span class="price">$6.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-3', -1)">-</button>
+                            <span id="qty-prod-3">1</span>
+                            <button type="button" onclick="changeQty('prod-3', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Latte Capuccino', 6500, 'prod-3', 'card-3')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="menu-card" id="card-4">
+                    <div class="menu-inner-box">
+                        <h3>Iced Latte</h3>
+                        <p>Doble shot de espresso con leche fría y hielo.</p>
+                        <span class="price">$7.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-4', -1)">-</button>
+                            <span id="qty-prod-4">1</span>
+                            <button type="button" onclick="changeQty('prod-4', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Iced Latte', 7500, 'prod-4', 'card-4')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="menu-card" id="card-5">
+                    <div class="menu-inner-box">
+                        <h3>V60</h3>
+                        <p>Método de extracción manual por goteo.</p>
+                        <span class="price">$8.200</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-5', -1)">-</button>
+                            <span id="qty-prod-5">1</span>
+                            <button type="button" onclick="changeQty('prod-5', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'V60', 8200, 'prod-5', 'card-5')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="menu-card" id="card-6">
+                    <div class="menu-inner-box">
+                        <h3>Limonada</h3>
+                        <p>Jugo natural exprimido de lima con menta y jengibre.</p>
+                        <span class="price">$7.900</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-6', -1)">-</button>
+                            <span id="qty-prod-6">1</span>
+                            <button type="button" onclick="changeQty('prod-6', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Limonada', 7900, 'prod-6', 'card-6')">Agregar al pedido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SALADO -->
+            <h3 class="menu-category-title"><i class="fa-solid fa-utensils"></i> Salado</h3>
+            <div class="menu-grid">
+                <!-- 7 -->
+                <div class="menu-card" id="card-7">
+                    <div class="menu-inner-box">
+                        <h3>Croissant JQ</h3>
+                        <p>Masa hojaldrada rellena con jamón cocido y queso fundido.</p>
+                        <span class="price">$7.200</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-7', -1)">-</button>
+                            <span id="qty-prod-7">1</span>
+                            <button type="button" onclick="changeQty('prod-7', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Croissant JQ', 7200, 'prod-7', 'card-7')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="menu-card" id="card-8">
+                    <div class="menu-inner-box">
+                        <h3>Tostada de Campo</h3>
+                        <p>Pan de campo con dos huevos a elección, queso crema y cherrys.</p>
+                        <span class="price">$8.000</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-8', -1)">-</button>
+                            <span id="qty-prod-8">1</span>
+                            <button type="button" onclick="changeQty('prod-8', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Tostada de Campo', 8000, 'prod-8', 'card-8')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="menu-card" id="card-9">
+                    <div class="menu-inner-box">
+                        <h3>Avocado Smash</h3>
+                        <p>Tostada de masa madre con palta, queso crema, tomate y chía.</p>
+                        <span class="price">$12.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-9', -1)">-</button>
+                            <span id="qty-prod-9">1</span>
+                            <button type="button" onclick="changeQty('prod-9', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Avocado Smash', 12500, 'prod-9', 'card-9')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 10 -->
+                <div class="menu-card" id="card-10">
+                    <div class="menu-inner-box">
+                        <h3>El Favorito de Tony</h3>
+                        <p>Ciabatta con rúcula, parmesano, jamón crudo y aceite de oliva.</p>
+                        <span class="price">$16.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-10', -1)">-</button>
+                            <span id="qty-prod-10">1</span>
+                            <button type="button" onclick="changeQty('prod-10', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'El Favorito de Tony', 16500, 'prod-10', 'card-10')">Agregar al pedido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DULCE -->
+            <h3 class="menu-category-title"><i class="fa-solid fa-cookie-bite"></i> Dulce</h3>
+            <div class="menu-grid">
+                <!-- 11 -->
+                <div class="menu-card" id="card-11">
+                    <div class="menu-inner-box">
+                        <h3>Croissant</h3>
+                        <p>Masa hojaldrada a base de manteca.</p>
+                        <span class="price">$4.600</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-11', -1)">-</button>
+                            <span id="qty-prod-11">1</span>
+                            <button type="button" onclick="changeQty('prod-11', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Croissant', 4600, 'prod-11', 'card-11')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 12 -->
+                <div class="menu-card" id="card-12">
+                    <div class="menu-inner-box">
+                        <h3>Roll de Canela</h3>
+                        <p>Masa brioche esponjosa con relleno de canela y azúcar mascabo.</p>
+                        <span class="price">$5.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-12', -1)">-</button>
+                            <span id="qty-prod-12">1</span>
+                            <button type="button" onclick="changeQty('prod-12', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Roll de Canela', 5500, 'prod-12', 'card-12')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 13 -->
+                <div class="menu-card" id="card-13">
+                    <div class="menu-inner-box">
+                        <h3>Alfajor a Elección</h3>
+                        <p>Chocolate, almendras o dulce de leche.</p>
+                        <span class="price">$5.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-13', -1)">-</button>
+                            <span id="qty-prod-13">1</span>
+                            <button type="button" onclick="changeQty('prod-13', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Alfajor a Elección', 5500, 'prod-13', 'card-13')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- 14 -->
+                <div class="menu-card" id="card-14">
+                    <div class="menu-inner-box">
+                        <h3>Bowl de Yogur</h3>
+                        <p>Yogur con granola y frutas frescas del día.</p>
+                        <span class="price">$10.500</span>
+                        <div class="qty-control">
+                            <button type="button" onclick="changeQty('prod-14', -1)">-</button>
+                            <span id="qty-prod-14">1</span>
+                            <button type="button" onclick="changeQty('prod-14', 1)">+</button>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Bowl de Yogur', 10500, 'prod-14', 'card-14')">Agregar al pedido</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CARRITO LATERAL (DRAWER) -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-basket-shopping"></i> Tu Pedido Local</h3>
+            <button type="button" onclick="toggleCart()" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart">No hay productos agregados aún.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button type="button" class="btn-checkout" onclick="alert('Pedido registrado localmente. ¡Gracias por elegirnos!')">Confirmar Pedido</button>
+        </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <section class="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2>Visítanos en Tigre</h2>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Italia 1599, B1648EFC Tigre, Provincia de Buenos Aires</p>
+                <p><i class="fa-solid fa-clock"></i> Martes a Domingo de 08:30 a 20:00 hs.</p>
+                <p><i class="fa-solid fa-phone"></i> 011 15-5329-7865</p>
+                <p><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/cucuy.ba" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">@cucuy.ba</a></p>
+            </div>
+            <div class="map-box">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p>Av. Italia 1599, Tigre</p>
+                <span class="map-note">Provincia de Buenos Aires, Argentina</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 cucuy.ba. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT ROBUSTO -->
+    <script>
+        let cart = [];
+        let quantities = {
+            'prod-1': 1, 'prod-2': 1, 'prod-3': 1, 'prod-4': 1,
+            'prod-5': 1, 'prod-6': 1, 'prod-7': 1, 'prod-8': 1,
+            'prod-9': 1, 'prod-10': 1, 'prod-11': 1, 'prod-12': 1,
+            'prod-13': 1, 'prod-14': 1
+        };
+
+        function changeQty(prodId, delta) {
+            if (!quantities[prodId]) quantities[prodId] = 1;
+            quantities[prodId] += delta;
+            if (quantities[prodId] < 1) quantities[prodId] = 1;
+            const span = document.getElementById('qty-' + prodId);
+            if (span) span.textContent = quantities[prodId];
+        }
+
+        function addItemWithAnimation(event, name, price, prodId, cardId) {
+            const qtyToAdd = quantities[prodId] || 1;
+            addToCart(name, price, qtyToAdd);
+
+            const card = document.getElementById(cardId);
+            const cartBtn = document.getElementById('cart-btn');
+
+            if (card && cartBtn) {
+                const cardRect = card.getBoundingClientRect();
+                const cartRect = cartBtn.getBoundingClientRect();
+
+                const flyer = document.createElement('div');
+                flyer.textContent = '☕📦';
+                flyer.style.position = 'fixed';
+                flyer.style.left = (cardRect.left + (cardRect.width / 2)) + 'px';
+                flyer.style.top = (cardRect.top + (cardRect.height / 2)) + 'px';
+                flyer.style.zIndex = '99999';
+                flyer.style.transition = 'all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                flyer.style.fontSize = '2rem';
+                flyer.style.pointerEvents = 'none';
+                
+                document.body.appendChild(flyer);
+
+                setTimeout(() => {
+                    flyer.style.left = (cartRect.left + (cartRect.width / 2)) + 'px';
+                    flyer.style.top = (cartRect.top + 10) + 'px';
+                    flyer.style.transform = 'scale(0.3) rotate(720deg)';
+                    flyer.style.opacity = '0.2';
+                }, 30);
+
+                setTimeout(() => {
+                    flyer.remove();
+                    cartBtn.classList.add('bounce');
+                    setTimeout(() => cartBtn.classList.remove('bounce'), 500);
+                }, 700);
+            }
+
+            showToast(name, qtyToAdd);
+        }
+
+        function showToast(productName, qty) {
+            const toast = document.getElementById('toast-notification');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = `¡${qty}x "${productName}" sumado al pedido!`;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function addToCart(name, price, qty) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ name, price, qty });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+
+            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = totalQty;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart">No hay productos agregados aún.</p>';
+                cartTotalPrice.textContent = '$0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                let subtotal = item.price * item.qty;
+                total += subtotal;
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <p>$${item.price.toLocaleString()} x ${item.qty} = $${subtotal.toLocaleString()}</p>
+                        </div>
+                        <button type="button" onclick="removeItem(${index})" class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+
+            cartItems.innerHTML = html;
+            cartTotalPrice.textContent = '$' + total.toLocaleString();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('open');
+        }
+
+        function scrollToCart() {
+            toggleCart();
+        }
+    </script>
+</body>
+</html>
