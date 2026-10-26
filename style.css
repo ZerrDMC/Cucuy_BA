@@ -80,7 +80,7 @@ h1, h2, h3, .logo {
     color: var(--accent);
 }
 
-/* INDICADOR DE CARRITO EN NAV */
+/* INDICADOR DE CARRITO Y REBOTE */
 .cart-indicator {
     background-color: var(--accent);
     color: white;
@@ -98,7 +98,44 @@ h1, h2, h3, .logo {
     background-color: #b26f46;
 }
 
-/* HERO */
+.cart-indicator.bounce {
+    animation: bounceEffect 0.5s ease;
+}
+
+@keyframes bounceEffect {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); background-color: #99582a; }
+}
+
+/* NOTIFICACIÓN TOAST */
+.toast-notification {
+    position: fixed;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-notification.show {
+    bottom: 30px;
+}
+
+.toast-notification i {
+    color: #25D366;
+    font-size: 1.2rem;
+}
+
+/* HERO Y ABOUT */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
@@ -165,7 +202,6 @@ h1, h2, h3, .logo {
     background-color: #b26f46;
 }
 
-/* ABOUT */
 .about {
     padding: 100px 0;
 }
@@ -225,7 +261,7 @@ h1, h2, h3, .logo {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* MENU Y TARJETAS CON FONDO DE MADERA DE ROBLE */
+/* MENÚ: FONDO DE CORTEZA DE ROBLE Y CAJA INTERNA DE CUARZO BLANCO */
 .menu {
     background-color: #F4EFEA;
     padding: 100px 0;
@@ -265,48 +301,85 @@ h1, h2, h3, .logo {
     gap: 25px;
 }
 
+/* Fondo exterior de la tarjeta: CORTEZA DE ROBLE */
 .menu-card {
-    /* Fondo con textura de madera de roble */
-    background: linear-gradient(135deg, #d4a373 0%, #bc6c25 50%, #99582a 100%);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    background: radial-gradient(circle, #5c3a21 0%, #3e2714 100%);
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    border: 3px solid #2b1b0e;
     transition: var(--transition);
-    position: relative;
-    border: 2px solid #8d4925;
 }
 
 .menu-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    border-color: #f4a261;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.35);
 }
 
-.menu-info {
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.92);
-    margin: 10px;
+/* Caja interior: CUARZO BLANCO */
+.menu-inner-box {
+    background-color: #f7f7f9;
     border-radius: 12px;
+    padding: 22px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.menu-info h3 {
-    font-size: 1.2rem;
+.menu-inner-box h3 {
+    font-size: 1.25rem;
     color: var(--primary);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-.menu-info p {
+.menu-inner-box p {
     color: var(--text-muted);
     font-size: 0.9rem;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .price {
     font-weight: 700;
     color: var(--accent);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* BOTÓN RECTANGULAR DE CANTIDAD (+ / -) CON FONDO DE CUARZO Y BOTONES DESTACADOS */
+.qty-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px; /* Rectangular con bordes redondos */
+    padding: 6px 12px;
+    margin-bottom: 12px;
+}
+
+.qty-control button {
+    background-color: var(--accent); /* Color llamativo y fácil de notar sobre el blanco */
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-control button:hover {
+    background-color: var(--primary);
+}
+
+.qty-control span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
 }
 
 .btn-add {
@@ -314,9 +387,9 @@ h1, h2, h3, .logo {
     color: white;
     border: none;
     padding: 10px 14px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     width: 100%;
     cursor: pointer;
     transition: var(--transition);
@@ -434,7 +507,7 @@ h1, h2, h3, .logo {
     background-color: #b26f46;
 }
 
-/* CONTACTO */
+/* CONTACTO Y FOOTER */
 .contact {
     padding: 100px 0;
 }
@@ -489,7 +562,6 @@ h1, h2, h3, .logo {
     color: #b0b0b0;
 }
 
-/* FOOTER */
 footer {
     background-color: var(--primary);
     color: #aaa;
@@ -513,4 +585,4 @@ footer {
         width: 100%;
         right: -100%;
     }
-    }
+        }
