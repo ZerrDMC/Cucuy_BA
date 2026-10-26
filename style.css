@@ -80,28 +80,28 @@ h1, h2, h3, .logo {
     color: var(--accent);
 }
 
-.btn-whatsapp-nav {
-    background-color: #25D366;
+/* INDICADOR DE CARRITO EN NAV */
+.cart-indicator {
+    background-color: var(--accent);
     color: white;
     padding: 8px 16px;
     border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-weight: 600;
     transition: var(--transition);
 }
 
-.btn-whatsapp-nav:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+.cart-indicator:hover {
+    background-color: #b26f46;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     display: flex;
     align-items: center;
     text-align: center;
@@ -165,16 +165,6 @@ h1, h2, h3, .logo {
     background-color: #b26f46;
 }
 
-.btn-outline {
-    border: 2px solid white;
-    color: white;
-}
-
-.btn-outline:hover {
-    background-color: white;
-    color: var(--primary);
-}
-
 /* ABOUT */
 .about {
     padding: 100px 0;
@@ -235,7 +225,7 @@ h1, h2, h3, .logo {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* MENU */
+/* MENU Y TARJETAS TÁCTILES */
 .menu {
     background-color: #F4EFEA;
     padding: 100px 0;
@@ -281,40 +271,169 @@ h1, h2, h3, .logo {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: var(--transition);
+    cursor: pointer;
+    position: relative;
 }
 
 .menu-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 2px solid var(--accent);
 }
 
 .menu-card img {
     width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
 }
 
 .menu-info {
-    padding: 25px;
-    position: relative;
+    padding: 20px;
 }
 
 .menu-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .menu-info p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
 }
 
 .price {
     font-weight: 700;
     color: var(--accent);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-add {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-add:hover {
+    background-color: var(--accent);
+}
+
+/* CAJÓN DE CARRITO (DRAWER) */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+    z-index: 2000;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-header {
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 40px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item h4 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.cart-item p {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cart-footer {
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #eee;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
     font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.btn-checkout {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-checkout:hover {
+    background-color: #b26f46;
 }
 
 /* CONTACTO */
@@ -342,35 +461,6 @@ h1, h2, h3, .logo {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.contact-info i {
-    color: var(--accent);
-    font-size: 1.2rem;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.social-icons a {
-    width: 45px;
-    height: 45px;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.social-icons a:hover {
-    background: var(--accent);
 }
 
 .map-box {
@@ -420,5 +510,9 @@ footer {
     }
     .hero h1 {
         font-size: 2.5rem;
+    }
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
     }
     }
