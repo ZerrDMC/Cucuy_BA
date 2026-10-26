@@ -29,7 +29,7 @@
                 <a href="#menu">Menú</a>
                 <a href="#contacto">Contacto</a>
             </nav>
-            <div id="cart-btn" class="cart-indicator" onclick="scrollToCart()">
+            <div id="cart-btn" class="cart-indicator" onclick="toggleCart()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-count">0</span>
             </div>
@@ -95,11 +95,11 @@
                         <p>Shot de espresso o doble shot.</p>
                         <span class="price">$5.100</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-1', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-1', -1)">-</button>
                             <span id="qty-prod-1">1</span>
-                            <button onclick="changeQty('prod-1', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-1', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Espresso Doble', 5100, 'prod-1', 'card-1')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Espresso Doble', 5100, 'prod-1', 'card-1')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 2 -->
@@ -109,11 +109,11 @@
                         <p>Doble shot de espresso con espuma de leche.</p>
                         <span class="price">$6.300</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-2', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-2', -1)">-</button>
                             <span id="qty-prod-2">1</span>
-                            <button onclick="changeQty('prod-2', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-2', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Flat White', 6300, 'prod-2', 'card-2')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Flat White', 6300, 'prod-2', 'card-2')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 3 -->
@@ -123,11 +123,11 @@
                         <p>Shot de espresso con leche o doble con espuma.</p>
                         <span class="price">$6.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-3', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-3', -1)">-</button>
                             <span id="qty-prod-3">1</span>
-                            <button onclick="changeQty('prod-3', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-3', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Latte Capuccino', 6500, 'prod-3', 'card-3')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Latte Capuccino', 6500, 'prod-3', 'card-3')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 4 -->
@@ -137,11 +137,11 @@
                         <p>Doble shot de espresso con leche fría y hielo.</p>
                         <span class="price">$7.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-4', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-4', -1)">-</button>
                             <span id="qty-prod-4">1</span>
-                            <button onclick="changeQty('prod-4', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-4', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Iced Latte', 7500, 'prod-4', 'card-4')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Iced Latte', 7500, 'prod-4', 'card-4')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 5 -->
@@ -151,11 +151,11 @@
                         <p>Método de extracción manual por goteo.</p>
                         <span class="price">$8.200</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-5', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-5', -1)">-</button>
                             <span id="qty-prod-5">1</span>
-                            <button onclick="changeQty('prod-5', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-5', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'V60', 8200, 'prod-5', 'card-5')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'V60', 8200, 'prod-5', 'card-5')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 6 -->
@@ -165,11 +165,11 @@
                         <p>Jugo natural exprimido de lima con menta y jengibre.</p>
                         <span class="price">$7.900</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-6', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-6', -1)">-</button>
                             <span id="qty-prod-6">1</span>
-                            <button onclick="changeQty('prod-6', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-6', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Limonada', 7900, 'prod-6', 'card-6')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Limonada', 7900, 'prod-6', 'card-6')">Agregar al pedido</button>
                     </div>
                 </div>
             </div>
@@ -184,11 +184,11 @@
                         <p>Masa hojaldrada rellena con jamón cocido y queso fundido.</p>
                         <span class="price">$7.200</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-7', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-7', -1)">-</button>
                             <span id="qty-prod-7">1</span>
-                            <button onclick="changeQty('prod-7', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-7', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Croissant JQ', 7200, 'prod-7', 'card-7')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Croissant JQ', 7200, 'prod-7', 'card-7')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 8 -->
@@ -198,11 +198,11 @@
                         <p>Pan de campo con dos huevos a elección, queso crema y cherrys.</p>
                         <span class="price">$8.000</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-8', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-8', -1)">-</button>
                             <span id="qty-prod-8">1</span>
-                            <button onclick="changeQty('prod-8', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-8', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Tostada de Campo', 8000, 'prod-8', 'card-8')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Tostada de Campo', 8000, 'prod-8', 'card-8')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 9 -->
@@ -212,11 +212,11 @@
                         <p>Tostada de masa madre con palta, queso crema, tomate y chía.</p>
                         <span class="price">$12.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-9', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-9', -1)">-</button>
                             <span id="qty-prod-9">1</span>
-                            <button onclick="changeQty('prod-9', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-9', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Avocado Smash', 12500, 'prod-9', 'card-9')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Avocado Smash', 12500, 'prod-9', 'card-9')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 10 -->
@@ -226,11 +226,11 @@
                         <p>Ciabatta con rúcula, parmesano, jamón crudo y aceite de oliva.</p>
                         <span class="price">$16.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-10', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-10', -1)">-</button>
                             <span id="qty-prod-10">1</span>
-                            <button onclick="changeQty('prod-10', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-10', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'El Favorito de Tony', 16500, 'prod-10', 'card-10')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'El Favorito de Tony', 16500, 'prod-10', 'card-10')">Agregar al pedido</button>
                     </div>
                 </div>
             </div>
@@ -245,11 +245,11 @@
                         <p>Masa hojaldrada a base de manteca.</p>
                         <span class="price">$4.600</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-11', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-11', -1)">-</button>
                             <span id="qty-prod-11">1</span>
-                            <button onclick="changeQty('prod-11', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-11', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Croissant', 4600, 'prod-11', 'card-11')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Croissant', 4600, 'prod-11', 'card-11')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 12 -->
@@ -259,11 +259,11 @@
                         <p>Masa brioche esponjosa con relleno de canela y azúcar mascabo.</p>
                         <span class="price">$5.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-12', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-12', -1)">-</button>
                             <span id="qty-prod-12">1</span>
-                            <button onclick="changeQty('prod-12', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-12', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Roll de Canela', 5500, 'prod-12', 'card-12')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Roll de Canela', 5500, 'prod-12', 'card-12')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 13 -->
@@ -273,11 +273,11 @@
                         <p>Chocolate, almendras o dulce de leche.</p>
                         <span class="price">$5.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-13', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-13', -1)">-</button>
                             <span id="qty-prod-13">1</span>
-                            <button onclick="changeQty('prod-13', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-13', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Alfajor a Elección', 5500, 'prod-13', 'card-13')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Alfajor a Elección', 5500, 'prod-13', 'card-13')">Agregar al pedido</button>
                     </div>
                 </div>
                 <!-- Producto 14 -->
@@ -287,11 +287,11 @@
                         <p>Yogur con granola y frutas frescas del día.</p>
                         <span class="price">$10.500</span>
                         <div class="qty-control">
-                            <button onclick="changeQty('prod-14', -1)">-</button>
+                            <button type="button" onclick="changeQty('prod-14', -1)">-</button>
                             <span id="qty-prod-14">1</span>
-                            <button onclick="changeQty('prod-14', 1)">+</button>
+                            <button type="button" onclick="changeQty('prod-14', 1)">+</button>
                         </div>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Bowl de Yogur', 10500, 'prod-14', 'card-14')">Agregar al pedido</button>
+                        <button type="button" class="btn-add" onclick="addItemWithAnimation(event, 'Bowl de Yogur', 10500, 'prod-14', 'card-14')">Agregar al pedido</button>
                     </div>
                 </div>
             </div>
@@ -303,7 +303,7 @@
     <div id="cart-drawer" class="cart-drawer">
         <div class="cart-header">
             <h3><i class="fa-solid fa-basket-shopping"></i> Tu Pedido Local</h3>
-            <button onclick="toggleCart()" class="close-cart">&times;</button>
+            <button type="button" onclick="toggleCart()" class="close-cart">&times;</button>
         </div>
         <div id="cart-items" class="cart-items">
             <p class="empty-cart">No hay productos agregados aún.</p>
@@ -313,7 +313,7 @@
                 <span>Total:</span>
                 <span id="cart-total-price">$0</span>
             </div>
-            <button class="btn-checkout" onclick="alert('Pedido registrado localmente. ¡Gracias!')">Confirmar Pedido</button>
+            <button type="button" class="btn-checkout" onclick="alert('Pedido registrado localmente. ¡Gracias!')">Confirmar Pedido</button>
         </div>
     </div>
 
@@ -369,19 +369,7 @@
             const cartRect = cartBtn.getBoundingClientRect();
 
             const flyer = document.createElement('div');
-            flyer.className = 'flyer-item';
             flyer.textContent = '☕📦';
             flyer.style.position = 'fixed';
             flyer.style.left = (cardRect.left + (cardRect.width / 2)) + 'px';
-            flyer.style.top = (cardRect.top + (cardRect.height / 2)) + 'px';
-            flyer.style.zIndex = '9999';
-            flyer.style.transition = 'all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            flyer.style.fontSize = '2.2rem';
-            flyer.style.pointerEvents = 'none';
-            
-            document.body.appendChild(flyer);
-
-            setTimeout(() => {
-                flyer.style.left = (cartRect.left + (cartRect.width / 2)) + 'px';
-                flyer.style.top = cartRect.top + 'px';
-                flyer.style.transform = 's
+        
