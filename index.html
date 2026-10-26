@@ -14,6 +14,11 @@
 </head>
 <body>
 
+    <!-- AVISO FLOTANTE DE NOTIFICACIÓN -->
+    <div id="toast-notification" class="toast-notification">
+        <i class="fa-solid fa-check-circle"></i> <span id="toast-msg">¡Producto agregado al pedido!</span>
+    </div>
+
     <!-- HEADER / NAVEGACIÓN -->
     <header class="header">
         <div class="nav-container">
@@ -72,62 +77,98 @@
         </div>
     </section>
 
-    <!-- MENÚ INTERACTIVO CON FONDO DE MADERA Y ANIMACIÓN -->
+    <!-- MENÚ CON CORTEZA DE ROBLE Y SELECTOR CUARZO BLANCO (+ / -) -->
     <section id="menu" class="menu">
         <div class="container">
             <div class="section-title">
                 <h2>Nuestra Carta</h2>
-                <p>Elige tus platos y mira cómo vuelan directo al carrito de pedidos.</p>
+                <p>Arma tu pedido seleccionando cantidades y sumándolo al carrito.</p>
             </div>
 
             <!-- SECCIÓN CAFÉ -->
             <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i> Café & Bebidas</h3>
             <div class="menu-grid">
+                <!-- Tarjeta 1 -->
                 <div class="menu-card" id="card-1">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Espresso / Doble</h3>
                         <p>Shot de espresso o doble shot.</p>
                         <span class="price">$5.100</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Espresso / Doble', -1)">-</button>
+                            <span id="qty-Espresso / Doble">1</span>
+                            <button onclick="changeQty('Espresso / Doble', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Espresso / Doble', 5100, 'card-1')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 2 -->
                 <div class="menu-card" id="card-2">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Flat White</h3>
                         <p>Doble shot de espresso con espuma de leche.</p>
                         <span class="price">$6.300</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Flat White', -1)">-</button>
+                            <span id="qty-Flat White">1</span>
+                            <button onclick="changeQty('Flat White', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Flat White', 6300, 'card-2')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 3 -->
                 <div class="menu-card" id="card-3">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Latte / Capuccino</h3>
                         <p>Shot de espresso con leche o doble con espuma.</p>
                         <span class="price">$6.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Latte / Capuccino', -1)">-</button>
+                            <span id="qty-Latte / Capuccino">1</span>
+                            <button onclick="changeQty('Latte / Capuccino', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Latte / Capuccino', 6500, 'card-3')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 4 -->
                 <div class="menu-card" id="card-4">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Iced Latte</h3>
                         <p>Doble shot de espresso con leche fría y hielo.</p>
                         <span class="price">$7.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Iced Latte', -1)">-</button>
+                            <span id="qty-Iced Latte">1</span>
+                            <button onclick="changeQty('Iced Latte', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Iced Latte', 7500, 'card-4')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 5 -->
                 <div class="menu-card" id="card-5">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>V60</h3>
                         <p>Método de extracción manual por goteo.</p>
                         <span class="price">$8.200</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('V60', -1)">-</button>
+                            <span id="qty-V60">1</span>
+                            <button onclick="changeQty('V60', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'V60', 8200, 'card-5')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 6 -->
                 <div class="menu-card" id="card-6">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Limonada</h3>
                         <p>Jugo natural exprimido de lima con menta y jengibre.</p>
                         <span class="price">$7.900</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Limonada', -1)">-</button>
+                            <span id="qty-Limonada">1</span>
+                            <button onclick="changeQty('Limonada', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Limonada', 7900, 'card-6')">Agregar al pedido</button>
                     </div>
                 </div>
@@ -136,35 +177,59 @@
             <!-- SECCIÓN SALADO -->
             <h3 class="menu-category-title" style="margin-top: 60px;"><i class="fa-solid fa-utensils"></i> Salado</h3>
             <div class="menu-grid">
+                <!-- Tarjeta 7 -->
                 <div class="menu-card" id="card-7">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Croissant JQ</h3>
                         <p>Masa hojaldrada rellena con jamón cocido y queso fundido.</p>
                         <span class="price">$7.200</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Croissant JQ', -1)">-</button>
+                            <span id="qty-Croissant JQ">1</span>
+                            <button onclick="changeQty('Croissant JQ', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Croissant JQ', 7200, 'card-7')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 8 -->
                 <div class="menu-card" id="card-8">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Tostada de Campo</h3>
                         <p>Pan de campo con dos huevos a elección, queso crema y cherrys.</p>
                         <span class="price">$8.000</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Tostada de Campo', -1)">-</button>
+                            <span id="qty-Tostada de Campo">1</span>
+                            <button onclick="changeQty('Tostada de Campo', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Tostada de Campo', 8000, 'card-8')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 9 -->
                 <div class="menu-card" id="card-9">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Avocado Smash</h3>
                         <p>Tostada de masa madre con palta, queso crema, tomate y chía.</p>
                         <span class="price">$12.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Avocado Smash', -1)">-</button>
+                            <span id="qty-Avocado Smash">1</span>
+                            <button onclick="changeQty('Avocado Smash', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Avocado Smash', 12500, 'card-9')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 10 -->
                 <div class="menu-card" id="card-10">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>El Favorito de Tony</h3>
                         <p>Ciabatta con rúcula, parmesano, jamón crudo y aceite de oliva.</p>
                         <span class="price">$16.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('El Favorito de Tony', -1)">-</button>
+                            <span id="qty-El Favorito de Tony">1</span>
+                            <button onclick="changeQty('El Favorito de Tony', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'El Favorito de Tony', 16500, 'card-10')">Agregar al pedido</button>
                     </div>
                 </div>
@@ -173,21 +238,155 @@
             <!-- SECCIÓN DULCE -->
             <h3 class="menu-category-title" style="margin-top: 60px;"><i class="fa-solid fa-cookie-bite"></i> Dulce</h3>
             <div class="menu-grid">
+                <!-- Tarjeta 11 -->
                 <div class="menu-card" id="card-11">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Croissant</h3>
                         <p>Masa hojaldrada a base de manteca.</p>
                         <span class="price">$4.600</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Croissant', -1)">-</button>
+                            <span id="qty-Croissant">1</span>
+                            <button onclick="changeQty('Croissant', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Croissant', 4600, 'card-11')">Agregar al pedido</button>
                     </div>
                 </div>
+                <!-- Tarjeta 12 -->
                 <div class="menu-card" id="card-12">
-                    <div class="menu-info">
+                    <div class="menu-inner-box">
                         <h3>Roll de Canela</h3>
                         <p>Masa brioche esponjosa con relleno de canela y azúcar mascabo.</p>
                         <span class="price">$5.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Roll de Canela', -1)">-</button>
+                            <span id="qty-Roll de Canela">1</span>
+                            <button onclick="changeQty('Roll de Canela', 1)">+</button>
+                        </div>
                         <button class="btn-add" onclick="addItemWithAnimation(event, 'Roll de Canela', 5500, 'card-12')">Agregar al pedido</button>
                     </div>
+                </div>
+                <!-- Tarjeta 13 -->
+                <div class="menu-card" id="card-13">
+                    <div class="menu-inner-box">
+                        <h3>Alfajor a Elección</h3>
+                        <p>Chocolate, almendras o dulce de leche.</p>
+                        <span class="price">$5.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Alfajor a Elección', -1)">-</button>
+                            <span id="qty-Alfajor a Elección">1</span>
+                            <button onclick="changeQty('Alfajor a Elección', 1)">+</button>
+                        </div>
+                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Alfajor a Elección', 5500, 'card-13')">Agregar al pedido</button>
+                    </div>
+                </div>
+                <!-- Tarjeta 14 -->
+                <div class="menu-card" id="card-14">
+                    <div class="menu-inner-box">
+                        <h3>Bowl de Yogur</h3>
+                        <p>Yogur con granola y frutas frescas del día.</p>
+                        <span class="price">$10.500</span>
+                        <div class="qty-control">
+                            <button onclick="changeQty('Bowl de Yogur', -1)">-</button>
+                            <span id="qty-Bowl de Yogur">1</span>
+                            <button onclick="changeQty('Bowl de Yogur', 1)">+</button>
+                        </div>
+                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Bowl de Yogur', 10500, 'card-14')">Agregar al pedido</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CARRITO FLOTANTE (LOCAL) -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-basket-shopping"></i> Tu Pedido Local</h3>
+            <button onclick="toggleCart()" class="close-cart">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart">No hay productos agregados aún.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="btn-checkout" onclick="alert('Pedido registrado localmente. ¡Gracias!')">Confirmar Pedido</button>
+        </div>
+    </div>
+
+    <!-- CONTACTO Y UBICACIÓN -->
+    <section id="contacto" class="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2>Visítanos en Tigre</h2>
+                <p><i class="fa-solid fa-location-dot"></i> Av. Italia 1599, B1648EFC Tigre, Provincia de Buenos Aires</p>
+                <p><i class="fa-solid fa-clock"></i> Martes a Domingo de 08:30 a 20:00 hs.</p>
+                <p><i class="fa-solid fa-phone"></i> 011 15-5329-7865</p>
+            </div>
+            <div class="map-box">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p>Av. Italia 1599, Tigre</p>
+                <span class="map-note">Provincia de Buenos Aires, Argentina</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 cucuy.ba. Diseñado con pasión para negocios locales.</p>
+    </footer>
+
+    <!-- SCRIPT DE GESTIÓN DE CANTIDADES Y CARRITO -->
+    <script>
+        let cart = [];
+        let quantities = {};
+
+        function changeQty(name, delta) {
+            if (!quantities[name]) quantities[name] = 1;
+            quantities[name] += delta;
+            if (quantities[name] < 1) quantities[name] = 1;
+            const span = document.getElementById('qty-' + name);
+            if (span) span.textContent = quantities[name];
+        }
+
+        function addItemWithAnimation(event, name, price, cardId) {
+            const qtyToAdd = quantities[name] || 1;
+            addToCart(name, price, qtyToAdd);
+
+            // Animación de vuelo hacia el carrito
+            const card = document.getElementById(cardId);
+            const cartBtn = document.getElementById('cart-btn');
+
+            const cardRect = card.getBoundingClientRect();
+            const cartRect = cartBtn.getBoundingClientRect();
+
+            const flyer = document.createElement('div');
+            flyer.className = 'flyer-item';
+            flyer.textContent = '☕📦';
+            flyer.style.position = 'fixed';
+            flyer.style.left = cardRect.left + (cardRect.width / 2) + 'px';
+            flyer.style.top = cardRect.top + (cardRect.height / 2) + 'px';
+            flyer.style.zIndex = '9999';
+            flyer.style.transition = 'all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            flyer.style.fontSize = '2.2rem';
+            flyer.style.pointerEvents = 'none';
+            
+            document.body.appendChild(flyer);
+
+            setTimeout(() => {
+                flyer.style.left = cartRect.left + (cartRect.width / 2) + 'px';
+                flyer.style.top = cartRect.top + 'px';
+                flyer.style.transform = 'scale(0.4) rotate(720deg)';
+                flyer.style.opacity = '0.3';
+            }, 30);
+
+            setTimeout(() => {
+                flyer.remove();
+                cartBtn.classList.add('bounce');
+                setTimeout(() => cartBtn   </div>
                 </div>
                 <div class="menu-card" id="card-13">
                     <div class="menu-info">
