@@ -261,7 +261,7 @@ h1, h2, h3, .logo {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* MENÚ: FONDO DE CORTEZA DE ROBLE Y CAJA INTERNA DE CUARZO BLANCO */
+/* MENÚ: FONDO CAFÉ CLARITO Y CAJA INTERNA DE CUARZO BLANCO */
 .menu {
     background-color: #F4EFEA;
     padding: 100px 0;
@@ -301,19 +301,19 @@ h1, h2, h3, .logo {
     gap: 25px;
 }
 
-/* Fondo exterior de la tarjeta: CORTEZA DE ROBLE */
+/* Fondo exterior de la tarjeta: CAFÉ MÁS CLARITO */
 .menu-card {
-    background: radial-gradient(circle, #5c3a21 0%, #3e2714 100%);
+    background: linear-gradient(135deg, #a67c52 0%, #8b5a36 100%);
     border-radius: 18px;
     padding: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    border: 3px solid #2b1b0e;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 2px solid #6e4425;
     transition: var(--transition);
 }
 
 .menu-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 /* Caja interior: CUARZO BLANCO */
@@ -344,20 +344,20 @@ h1, h2, h3, .logo {
     margin-bottom: 15px;
 }
 
-/* BOTÓN RECTANGULAR DE CANTIDAD (+ / -) CON FONDO DE CUARZO Y BOTONES DESTACADOS */
+/* BOTÓN DE CANTIDAD (+ / -) */
 .qty-control {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
     border: 2px solid #e0e0e0;
-    border-radius: 8px; /* Rectangular con bordes redondos */
+    border-radius: 8px;
     padding: 6px 12px;
     margin-bottom: 12px;
 }
 
 .qty-control button {
-    background-color: var(--accent); /* Color llamativo y fácil de notar sobre el blanco */
+    background-color: var(--accent);
     color: white;
     border: none;
     width: 32px;
@@ -382,13 +382,14 @@ h1, h2, h3, .logo {
     color: var(--primary);
 }
 
+/* BOTÓN AGREGAR AL PEDIDO: FONDO BLANCO Y LETRAS NEGRAS */
 .btn-add {
-    background-color: var(--primary);
-    color: white;
-    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 2px solid #cccccc;
     padding: 10px 14px;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     width: 100%;
     cursor: pointer;
@@ -396,7 +397,9 @@ h1, h2, h3, .logo {
 }
 
 .btn-add:hover {
-    background-color: var(--accent);
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
 /* CAJÓN DE CARRITO (DRAWER) */
@@ -585,4 +588,5 @@ footer {
         width: 100%;
         right: -100%;
     }
-        }
+    }
+        
