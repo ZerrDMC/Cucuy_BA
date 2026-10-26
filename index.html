@@ -77,7 +77,7 @@
         </div>
     </section>
 
-    <!-- MENÚ CON CORTEZA DE ROBLE Y SELECTOR CUARZO BLANCO (+ / -) -->
+    <!-- MENÚ CON TARJETAS CLARAS Y BOTONES BLANCOS -->
     <section id="menu" class="menu">
         <div class="container">
             <div class="section-title">
@@ -317,7 +317,7 @@
         </div>
     </div>
 
-    <!-- CONTACTO Y UBICACIÓN -->
+    <!-- CONTACTO Y UBICACIÓN (CON INSTAGRAM INTEGRADO) -->
     <section id="contacto" class="contact">
         <div class="container contact-grid">
             <div class="contact-info">
@@ -325,6 +325,7 @@
                 <p><i class="fa-solid fa-location-dot"></i> Av. Italia 1599, B1648EFC Tigre, Provincia de Buenos Aires</p>
                 <p><i class="fa-solid fa-clock"></i> Martes a Domingo de 08:30 a 20:00 hs.</p>
                 <p><i class="fa-solid fa-phone"></i> 011 15-5329-7865</p>
+                <p><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/cucuy.ba" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">@cucuy.ba</a></p>
             </div>
             <div class="map-box">
                 <i class="fa-solid fa-map-location-dot"></i>
@@ -339,7 +340,7 @@
         <p>&copy; 2026 cucuy.ba. Diseñado con pasión para negocios locales.</p>
     </footer>
 
-    <!-- SCRIPT DE GESTIÓN DE CANTIDADES Y CARRITO -->
+    <!-- SCRIPT -->
     <script>
         let cart = [];
         let quantities = {};
@@ -356,7 +357,6 @@
             const qtyToAdd = quantities[name] || 1;
             addToCart(name, price, qtyToAdd);
 
-            // Animación de vuelo hacia el carrito
             const card = document.getElementById(cardId);
             const cartBtn = document.getElementById('cart-btn');
 
@@ -383,171 +383,4 @@
                 flyer.style.opacity = '0.3';
             }, 30);
 
-            setTimeout(() => {
-                flyer.remove();
-                cartBtn.classList.add('bounce');
-                setTimeout(() => cartBtn   </div>
-                </div>
-                <div class="menu-card" id="card-13">
-                    <div class="menu-info">
-                        <h3>Alfajor a Elección</h3>
-                        <p>Chocolate, almendras o dulce de leche.</p>
-                        <span class="price">$5.500</span>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Alfajor a Elección', 5500, 'card-13')">Agregar al pedido</button>
-                    </div>
-                </div>
-                <div class="menu-card" id="card-14">
-                    <div class="menu-info">
-                        <h3>Bowl de Yogur</h3>
-                        <p>Yogur con granola y frutas frescas del día.</p>
-                        <span class="price">$10.500</span>
-                        <button class="btn-add" onclick="addItemWithAnimation(event, 'Bowl de Yogur', 10500, 'card-14')">Agregar al pedido</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CARRITO FLOTANTE (LOCAL) -->
-    <div id="cart-drawer" class="cart-drawer">
-        <div class="cart-header">
-            <h3><i class="fa-solid fa-basket-shopping"></i> Tu Pedido Local</h3>
-            <button onclick="toggleCart()" class="close-cart">&times;</button>
-        </div>
-        <div id="cart-items" class="cart-items">
-            <p class="empty-cart">No hay productos agregados aún.</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-price">$0</span>
-            </div>
-            <button class="btn-checkout" onclick="alert('Pedido registrado localmente. ¡Gracias!')">Confirmar Pedido</button>
-        </div>
-    </div>
-
-    <!-- CONTACTO Y UBICACIÓN -->
-    <section id="contacto" class="contact">
-        <div class="container contact-grid">
-            <div class="contact-info">
-                <h2>Visítanos en Tigre</h2>
-                <p><i class="fa-solid fa-location-dot"></i> Av. Italia 1599, B1648EFC Tigre, Provincia de Buenos Aires</p>
-                <p><i class="fa-solid fa-clock"></i> Martes a Domingo de 08:30 a 20:00 hs.</p>
-                <p><i class="fa-solid fa-phone"></i> 011 15-5329-7865</p>
-            </div>
-            <div class="contact-map">
-                <div class="map-box">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <p>Av. Italia 1599, Tigre</p>
-                    <span class="map-note">Provincia de Buenos Aires, Argentina</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 cucuy.ba. Diseñado con pasión para negocios locales.</p>
-    </footer>
-
-    <!-- SCRIPT DE CARRITO E INTERACCIÓN ANIMADA -->
-    <script>
-        let cart = [];
-
-        function addItemWithAnimation(event, name, price, cardId) {
-            // Agregar al carrito lógico
-            addToCart(name, price);
-
-            // Crear elemento flotante animado (vuelo hacia el carrito)
-            const card = document.getElementById(cardId);
-            const cartBtn = document.getElementById('cart-btn');
-
-            const cardRect = card.getBoundingClientRect();
-            const cartRect = cartBtn.getBoundingClientRect();
-
-            const flyer = document.createElement('div');
-            flyer.className = 'flyer-item';
-            flyer.textContent = '☕';
-            flyer.style.position = 'fixed';
-            flyer.style.left = cardRect.left + cardRect.width / 2 + 'px';
-            flyer.style.top = cardRect.top + cardRect.height / 2 + 'px';
-            flyer.style.zIndex = '9999';
-            flyer.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
-            flyer.style.fontSize = '1.8rem';
-            
-            document.body.appendChild(flyer);
-
-            setTimeout(() => {
-                flyer.style.left = cartRect.left + cartRect.width / 2 + 'px';
-                flyer.style.top = cartRect.top + cartRect.height / 2 + 'px';
-                flyer.style.transform = 'scale(0.3) rotate(360deg)';
-                flyer.style.opacity = '0';
-            }, 50);
-
-            setTimeout(() => {
-                flyer.remove();
-            }, 850);
-        }
-
-        function addToCart(name, price) {
-            const existing = cart.find(item => item.name === name);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push({ name, price, qty: 1 });
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartCount = document.getElementById('cart-count');
-            const cartItems = document.getElementById('cart-items');
-            const cartTotalPrice = document.getElementById('cart-total-price');
-
-            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            cartCount.textContent = totalQty;
-
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="empty-cart">No hay productos agregados aún.</p>';
-                cartTotalPrice.textContent = '$0';
-                return;
-            }
-
-            let html = '';
-            let total = 0;
-            cart.forEach((item, index) => {
-                let subtotal = item.price * item.qty;
-                total += subtotal;
-                html += `
-                    <div class="cart-item">
-                        <div>
-                            <h4>${item.name}</h4>
-                            <p>$${item.price.toLocaleString()} x ${item.qty}</p>
-                        </div>
-                        <button onclick="removeItem(${index})" class="btn-remove"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                `;
-            });
-
-            cartItems.innerHTML = html;
-            cartTotalPrice.textContent = '$' + total.toLocaleString();
-        }
-
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function toggleCart() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('open');
-        }
-
-        function scrollToCart() {
-            toggleCart();
-        }
-    </script>
-</body>
-    </html>
-    
+            setTimeout((
