@@ -92,6 +92,7 @@ h1, h2, h3, .logo {
     gap: 8px;
     font-weight: 600;
     transition: var(--transition);
+    z-index: 1001;
 }
 
 .cart-indicator:hover {
@@ -118,7 +119,7 @@ h1, h2, h3, .logo {
     padding: 12px 24px;
     border-radius: 30px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    z-index: 3000;
+    z-index: 4000;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -301,7 +302,7 @@ h1, h2, h3, .logo {
     gap: 25px;
 }
 
-/* Fondo exterior de la tarjeta: CAFÉ MÁS CLARITO */
+/* Fondo exterior de la tarjeta: CAFÉ CLARITO */
 .menu-card {
     background: linear-gradient(135deg, #a67c52 0%, #8b5a36 100%);
     border-radius: 18px;
@@ -309,6 +310,8 @@ h1, h2, h3, .logo {
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     border: 2px solid #6e4425;
     transition: var(--transition);
+    position: relative;
+    z-index: 10;
 }
 
 .menu-card:hover {
@@ -370,6 +373,8 @@ h1, h2, h3, .logo {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 20;
 }
 
 .qty-control button:hover {
@@ -394,6 +399,8 @@ h1, h2, h3, .logo {
     width: 100%;
     cursor: pointer;
     transition: var(--transition);
+    position: relative;
+    z-index: 20;
 }
 
 .btn-add:hover {
@@ -411,7 +418,7 @@ h1, h2, h3, .logo {
     height: 100%;
     background: white;
     box-shadow: -5px 0 25px rgba(0,0,0,0.15);
-    z-index: 2000;
+    z-index: 3000;
     transition: right 0.4s ease;
     display: flex;
     flex-direction: column;
@@ -588,4 +595,4 @@ footer {
         width: 100%;
         right: -100%;
     }
-}
+    }
